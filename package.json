@@ -1,0 +1,59 @@
+{
+  "name": "dsc",
+  "version": "1.0.0",
+  "description": "A 0.3kB JavaScript library for creating DOM structures",
+  "author": "Jonathan Neal <jonathantneal@hotmail.com>",
+  "license": "CC0-1.0",
+  "repository": "jonathantneal/dsc",
+  "homepage": "https://github.com/jonathantneal/dsc#readme",
+  "bugs": "https://github.com/jonathantneal/dsc/issues",
+  "main": "index.js",
+  "module": "index.mjs",
+  "browser": "browser.js",
+  "files": [
+    "browser.js",
+    "index.js",
+    "index.js.map",
+    "index.mjs",
+    "index.mjs.map"
+  ],
+  "scripts": {
+    "build": "npm run build:browser && npm run build:node",
+    "build:browser": "NODE_ENV=browser rollup --config --silent",
+    "build:node": "NODE_ENV=node rollup --config --silent",
+    "postbuild:browser": "g1=$(gzip-size --level 0 browser.js); g2=$(gzip-size --level 9 browser.js); echo Bundle size: $g1 / $g2 gzip",
+    "prepublishOnly": "npm test && npm run build",
+    "pretest:tape": "npm run build:node",
+    "test": "npm run test:js && npm run test:tape",
+    "test:js": "eslint src/*.js --cache --ignore-path .gitignore --quiet",
+    "test:tape": "node test"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "babel-eslint": "^10.0.1",
+    "babel-plugin-func-wrap": "^1.1.0",
+    "babel-plugin-transform-globals": "^1.0.1",
+    "eslint": "^5.16.0",
+    "jsdom": "^15.0.0",
+    "pre-commit": "^1.2.2",
+    "rollup": "^1.10.1",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-terser": "^4.0.4"
+  },
+  "keywords": [
+    "javascript",
+    "node",
+    "dom",
+    "element",
+    "create",
+    "property",
+    "properties",
+    "attribute",
+    "children"
+  ]
+}
