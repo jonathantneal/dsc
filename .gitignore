@@ -5,6 +5,7 @@
 !.rollup.js
 !.tape.js
 !.travis.yml
+!.size-limit.json
 *.log*
 *.result.css
 /browser.*
