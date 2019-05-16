@@ -6,7 +6,7 @@
 
 [dsc] is a JavaScript function for defining DOM structures. It takes an
 element, properties or attributes, children, and returns a DOM structure. It
-will add up to 358 bytes to your project.
+will add up to 285 bytes to your project.
 
 ```
 dsc(element, attributes, ...children)
